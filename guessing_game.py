@@ -16,12 +16,15 @@ def start_game():
     # show the current high score if the player is playing again
     if best_score > 0:
         print("Your best score so far is {}.".format(best_score))
+    else:
+        print("There is no best score currently. Good luck!")
 
     # the number the player will be trying to guess
     random_number = random.randint(1, 10)
     # tracks how many tries the player has made to guess the number
     tries = 1
 
+    # base gameplay
     while True:
         # prompts the player for a number, creates an exception if the input is not a number
         try:
@@ -50,8 +53,10 @@ def start_game():
         # sets high score if applicable
         if best_score == 0 or best_score > tries:
             best_score = tries
+        break
 
-        # play again?
+    # play again?
+    while True:
         try:
             play_again = input("Would you like to play again? (Y/N): ")
 
@@ -65,7 +70,7 @@ def start_game():
                 raise ValueError("Invalid input. Please enter Y or N.")
         except ValueError as err:
             print("{}".format(err))
-            play_again = input("Would you like to play again? (Y/N) ")
+            # play_again = input("Would you like to play again? (Y/N) ")
 
 if __name__ == '__main__':
     # Kick off the program by calling the start_game function.
