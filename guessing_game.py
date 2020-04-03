@@ -11,13 +11,13 @@ def start_game():
     # I was running into a local variable referenced before assignment area so I came up with this as a solution
     global best_score
     
-    print("Welcome to the Pick a Number game!")
+    print("\nWelcome to the Pick a Number game!")
 
     # show the current high score if the player is playing again
     if best_score > 0:
-        print("Your best score so far is {}.".format(best_score))
+        print("Your best score so far is {}.\n".format(best_score))
     else:
-        print("There is no best score currently. Good luck!")
+        print("There is no best score currently. Good luck!\n")
 
     # the number the player will be trying to guess
     random_number = random.randint(1, 10)
@@ -30,7 +30,7 @@ def start_game():
         try:
             current_guess = int(input("Guess a number between 1 and 10: "))
         except ValueError:
-            print("Sorry! That is not a valid number. Please try again...")
+            print("Sorry! That is not a valid number. Please try again...\n")
             continue
 
         # responds based on the players guess
@@ -38,17 +38,17 @@ def start_game():
             print("That number is not between 1 to 10. Please try again...")
             continue
         elif current_guess < random_number:
-            print("It's higher")
+            print("\nIt's higher")
             tries += 1
             continue
         elif current_guess > random_number:
-            print("It's lower")
+            print("\nIt's lower")
             tries += 1
             continue
 
         # Once the player has guessed the number...
-        print("Congratulations! You guessed the number!")
-        print("It took you {} tries to guess the correct number.".format(tries))
+        print("\nCongratulations! You guessed the number!")
+        print("It took you {} tries to guess the correct number.\n".format(tries))
 
         # sets high score if applicable
         if best_score == 0 or best_score > tries:
