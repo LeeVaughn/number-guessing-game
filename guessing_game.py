@@ -5,14 +5,17 @@ Project 1 - Number Guessing Game
 """
 import random
 
+best_score = 0
+
 def start_game():
+    global best_score
     # welcome player to the game
     print("Welcome to the Pick a Number game!")
 
-    best_score = 0
+    # best_score = 0
 
     # show the current high score if the player is playing again
-    if best_score is True:
+    if best_score > 0:
         print("Your best score so far is {}.".format(best_score))
 
     # generate a random number within a certain range
@@ -61,9 +64,10 @@ def start_game():
             play_again = input("Would you like to play again? (Y/N): ")
 
             if play_again.lower() == "y":
-                best_score = tries
-                print(best_score)
+                if best_score == 0 or best_score > tries:
+                    best_score = tries
                 start_game()
+                break
             elif play_again.lower() == "n":
                 print("Thanks for playing!")
                 break
