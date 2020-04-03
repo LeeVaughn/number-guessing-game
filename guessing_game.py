@@ -34,8 +34,8 @@ def start_game():
             continue
 
         # responds based on the players guess
-        if current_guess < 1 or current_guess > 10:
-            print("That number is not between 1 to 10. Please try again...")
+        if current_guess not in range(1, 11):
+            print("That number is not between 1 to 10. Please try again...\n")
             continue
         elif current_guess < random_number:
             print("\nIt's higher")
