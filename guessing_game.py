@@ -70,7 +70,6 @@ def start_game():
                 raise ValueError("Invalid input. Please enter Y or N.")
         except ValueError as err:
             print("{}".format(err))
-            # play_again = input("Would you like to play again? (Y/N) ")
 
 if __name__ == '__main__':
     # Kick off the program by calling the start_game function.
