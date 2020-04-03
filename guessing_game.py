@@ -8,39 +8,29 @@ import random
 best_score = 0
 
 def start_game():
+    # I was running into a local variable referenced before assignment area so I came up with this as a solution
     global best_score
-    # welcome player to the game
+    
     print("Welcome to the Pick a Number game!")
-
-    # best_score = 0
 
     # show the current high score if the player is playing again
     if best_score > 0:
         print("Your best score so far is {}.".format(best_score))
 
-    # generate a random number within a certain range
+    # the number the player will be trying to guess
     random_number = random.randint(1, 10)
-    print(random_number)
-    # create a variable to track the number of guesses
+    # tracks how many tries the player has made to guess the number
     tries = 1
 
-    # prompt use to guess a number
-    # convert guess to a number
-    # inform the user if their input is a non-number
     while True:
+        # prompts the player for a number, creates an exception if the input is not a number
         try:
             current_guess = int(input("Guess a number between 1 and 10: "))
-            print(current_guess)
         except ValueError:
             print("Sorry! That is not a valid number. Please try again...")
             continue
 
-        # while guessed number does not equal random number
-        # let the player know if their guess is outside the number range
-        # let the player know if their guess is outside the number range
-            # display "It's lower" if the guess is too high
-            # display "It's higher" if the guess is too low
-            # increment the counter variable
+        # responds based on the players guess
         if current_guess < 1 or current_guess > 10:
             print("That number is not between 1 to 10. Please try again...")
             continue
@@ -53,19 +43,19 @@ def start_game():
             tries += 1
             continue
 
-        # Once the player has guessed the number inform the user that they "Got it"
+        # Once the player has guessed the number...
         print("Congratulations! You guessed the number!")
-        # Let the player know how many tries it took
         print("It took you {} tries to guess the correct number.".format(tries))
-        # ask the player if they would like to play again
-            # if yes, increment games and call start_game
-            #  if no, let them know the game is over
+
+        # sets high score if applicable
+        if best_score == 0 or best_score > tries:
+            best_score = tries
+
+        # play again?
         try:
             play_again = input("Would you like to play again? (Y/N): ")
 
             if play_again.lower() == "y":
-                if best_score == 0 or best_score > tries:
-                    best_score = tries
                 start_game()
                 break
             elif play_again.lower() == "n":
@@ -76,8 +66,6 @@ def start_game():
         except ValueError as err:
             print("{}".format(err))
             play_again = input("Would you like to play again? (Y/N) ")
-            # if yes, increment games and call start_game
-        # let them know the game is over
 
 if __name__ == '__main__':
     # Kick off the program by calling the start_game function.
