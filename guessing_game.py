@@ -71,6 +71,7 @@ def start_game():
         except ValueError as err:
             print("{}".format(err))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Kick off the program by calling the start_game function.
     start_game()
