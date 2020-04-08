@@ -1,13 +1,20 @@
 """
 Python Web Development Techdegree
 Project 1 - Number Guessing Game
-
 """
 import random
 
 best_score = 0
 
+
 def start_game():
+    """
+    Begins game and handles gameplay functionality
+
+    Prompts user to guess a number between 1 and 10 and an infinite loop runs until they successfully guess the number
+    One the player guesses the number another infinite loop runs until they respond to whether they want to play again
+    Exceptions are raised for ValueErrors
+    """
     # I was running into a local variable referenced before assignment area so I came up with this as a solution
     global best_score
     
