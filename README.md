@@ -12,6 +12,9 @@ This is my take on the first project in Treehouse's Python Techdegree program.
 * One they correctly guess the number they are informed of how many tries it took and they have the option to play again
 * If they enter anything besides an upper or lower case Y or N in the play again input an exception is raised
 
+## Future Improvements
+* Break gameplay into separate functions
+
 ## Links
 * Repository: https://github.com/LeeVaughn/number-guessing-game
 
