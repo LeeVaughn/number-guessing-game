@@ -15,7 +15,7 @@ def start_game():
     One the player guesses the number another infinite loop runs until they respond to whether they want to play again
     Exceptions are raised for ValueErrors
     """
-    # I was running into a local variable referenced before assignment area so I came up with this as a solution
+    # I was running into a local variable referenced before assignment error so I came up with this as a solution
     global best_score
     
     print("\nWelcome to the Pick a Number game!")
